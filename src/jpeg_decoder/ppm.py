@@ -1,10 +1,9 @@
 from typing import List
-from image import Image
+from .image import Image
 
 def to_ppm(image: Image, filename: str = "out.ppm") -> None:
     """將 Image 物件寫入 PPM 檔案 (P6 格式)"""
     print(f"Writing to {filename}...")
-    
     with open(filename, "wb") as f:
         # 1. 寫入 Header
         # P6 <換行> 寬 高 <換行> 最大值 <換行>
@@ -20,5 +19,11 @@ def to_ppm(image: Image, filename: str = "out.ppm") -> None:
                 g = max(0, min(255, int(pixel.g)))
                 b = max(0, min(255, int(pixel.b)))
                 f.write(bytes([r, g, b]))
+    from PIL import Image
+
+    # 打開你的 PPM
+    img = Image.open("out.ppm")
+    # 存成 PNG
+    img.save("out.png")
                 
     print("Done.")
