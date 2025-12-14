@@ -29,7 +29,7 @@ def main():
     if args.command == "marker":
         marker_detector(jpeg_path)
     elif args.command == "reader":
-        data_reader(jpeg_path)
+        data_reader(f)
     elif args.command == "ppm":
         img = decoder(jpeg_path)
         to_ppm(img, "out.ppm")
