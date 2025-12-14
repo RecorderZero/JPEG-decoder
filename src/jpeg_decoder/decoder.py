@@ -79,7 +79,7 @@ class MCUWrap():
         self.jpeg_meta_data = jpeg_meta_data
     def display(self): 
         sof_info = self.jpeg_meta_data.sof_info
-        component_infos = sof_info.component_infos
+        component_infos = sof_info.components
         m = ["Y", "Cb", "Cr"]
         for id in range(3): 
             c_info = component_infos[id]
@@ -249,8 +249,11 @@ def decoder(filepath):
 
 
 def show_mcu_stage(reader, h, w):
-    jpeg_meta_data, MCUs= data_reader(reader)
-    mcu = MCUs[h][w].copy()
-    mcu_wrap = MCUWrap(mcu, jpeg_meta_data)
-    mcu_wrap.show_all_stage()
+    with open(reader, 'rb') as f:
+        
+        jpeg_meta_data, MCUs= data_reader(f)
+        f.close()
+        mcu = MCUs[h][w].copy()
+        mcu_wrap = MCUWrap(mcu, jpeg_meta_data)
+        mcu_wrap.show_all_stage()
 
