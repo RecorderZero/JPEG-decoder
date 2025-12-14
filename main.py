@@ -1,11 +1,11 @@
 import argparse
 from pathlib import Path
 
-from jpeg_decoder.image import Image
-from jpeg_decoder.ppm import to_ppm
-from jpeg_decoder.decoder import decoder, show_mcu_stage
-from jpeg_decoder.marker import marker_detector
-from jpeg_decoder.reader import data_reader
+from src.jpeg_decoder.image import Image
+from src.jpeg_decoder.ppm import to_ppm
+from src.jpeg_decoder.decoder import decoder, show_mcu_stage
+from src.jpeg_decoder.marker import marker_detector
+from src.jpeg_decoder.reader import data_reader
 
 def main():
     parser = argparse.ArgumentParser(description="JPEG Decoder")

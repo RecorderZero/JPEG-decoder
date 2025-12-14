@@ -1,5 +1,5 @@
 from typing import List
-from image import Image
+from .image import Image
 
 def to_ppm(image: Image, filename: str = "out.ppm") -> None:
     """將 Image 物件寫入 PPM 檔案 (P6 格式)"""

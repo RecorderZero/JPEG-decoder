@@ -2,8 +2,8 @@ from __future__ import annotations
 from typing import List, Tuple, Dict, BinaryIO
 import struct
 
-from primitives import JPEGMetadata, MCU, Block, HuffmanTable
-from marker import (
+from .primitives import JPEGMetadata, MCU, Block, HuffmanTable
+from .marker import (
     read_u8, read_u16, 
     parse_dqt, parse_dht, parse_sof0, parse_sos, parse_app0
 )
